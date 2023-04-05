@@ -11,6 +11,9 @@
   </head>
 
   <body>
-    <%= yield %>
+    <%= nav_bar brand: "Loja", brand_link: root_path  %>
+    <div class="container">
+      <%= yield %>
+    </div>
   </body>
 </html>
