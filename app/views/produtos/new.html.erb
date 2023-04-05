@@ -1,0 +1,26 @@
+<h1>Novo Produto</h1>
+<%= form_with model: @produto do |form| %>
+    <div class="row">
+        <div class="form-group col-sm-8">
+            <%= form.label :nome, "Nome" %>
+            <%= form.text_field :nome, class:"form-control" %>
+        </div>
+        <div class="form-group col-sm-8">
+            <%= form.label :descricao, "Descrição" %>
+            <%= form.text_area :descricao, class:"form-control" %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <%= form.label :preco, "Preço" %>
+            <%= form.number_field :preco, class:"form-control", step:0.01 %>
+        </div>
+    </div>
+    <div class="row">
+        <div class="form-group col-sm-2">
+            <%= form.label :quantidade, "Quantidade" %>
+            <%= form.number_field :quantidade, class:"form-control" %>
+        </div>
+    </div>
+    <%= form.submit "Criar", class:"btn btn-primary" %>
+<% end %>

@@ -11,7 +11,11 @@
   </head>
 
   <body>
-    <%= nav_bar brand: "Loja", brand_link: root_path  %>
+    <%= nav_bar brand: "Loja", brand_link: root_path do %>
+      <%= menu_group do %>
+        <%= menu_item "Criar novo produto", new_produto_path %>
+      <% end %>
+    <% end %>
     <div class="container">
       <%= yield %>
     </div>
