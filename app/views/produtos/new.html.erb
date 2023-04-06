@@ -3,24 +3,33 @@
     <div class="row">
         <div class="form-group col-sm-8">
             <%= form.label :nome, "Nome" %>
-            <%= form.text_field :nome, class:"form-control" %>
+            <%= form.text_field :nome, class: "form-control" %>
+            <% @produto.errors.full_messages_for(:nome).each do |message| %>
+                <small class="text-danger"><%= "#{message}." %></small>
+            <% end %>
         </div>
         <div class="form-group col-sm-8">
             <%= form.label :descricao, "Descrição" %>
-            <%= form.text_area :descricao, class:"form-control" %>
+            <%= form.text_area :descricao, class: "form-control" %>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-sm-2">
             <%= form.label :preco, "Preço" %>
-            <%= form.number_field :preco, class:"form-control", step:0.01 %>
+            <%= form.number_field :preco, class: "form-control", step: 0.01 %>
+            <% @produto.errors.full_messages_for(:preco).each do |message| %>
+                <small class="text-danger"><%= "#{message}." %></small>
+            <% end %>
         </div>
     </div>
     <div class="row">
         <div class="form-group col-sm-2">
             <%= form.label :quantidade, "Quantidade" %>
-            <%= form.number_field :quantidade, class:"form-control" %>
+            <%= form.number_field :quantidade, class: "form-control" %>
+            <% @produto.errors.full_messages_for(:quantidade).each do |message| %>
+                <small class="text-danger"><%= "#{message}." %></small>
+            <% end %>
         </div>
     </div>
-    <%= form.submit "Criar", class:"btn btn-primary" %>
+    <%= form.submit "Criar", class: "btn btn-primary" %>
 <% end %>

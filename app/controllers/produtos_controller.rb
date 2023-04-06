@@ -9,10 +9,15 @@ class ProdutosController < ApplicationController
   end
 
   def create
-    produtoParams =
+    produto_params =
       params.require(:produto).permit(:nome, :descricao, :preco, :quantidade)
-    Produto.create(produtoParams)
-    redirect_to root_path
+    @produto = Produto.new(produto_params)
+    if @produto.save
+      flash[:notice] = "Produto #{@produto.nome} criado com sucesso!"
+      redirect_to root_path
+    else
+      render :new
+    end
   end
 
   def destroy
